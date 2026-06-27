@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fafafa;
+  --foreground: #18181b;
+}
+
+html,
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Constrain the ImageKit player so it sits cleanly inside our layout */
+.video-js {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+
+/*
+ * The vertical playlist widget is taller than the 16/9 video, so its content
+ * inflated the player's grid row and left a black gap below the video. Drop the
+ * widget's content-based minimum height so the row matches the video; the widget
+ * then stretches to that height and scrolls internally (overflow-y is already
+ * auto). Also remove the player's default bottom margin that showed as a black
+ * strip under our rounded black wrapper.
+ */
+.ik-player-container {
+  margin-bottom: 0 !important;
+}
+
+.vjs-playlist-vertical {
+  min-height: 0 !important;
+}
